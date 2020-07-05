@@ -11,9 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', function() {
+    return view('index');
 });
+
+Route::get('/artikel', 'ArticlesController@index');
+Route::get('/artikel/create', 'ArticlesController@create');
+Route::post('/artikel', 'ArticlesController@store');
+Route::get('/artikel/{article}', 'ArticlesController@show');
+Route::delete('/artikel/{article}', 'ArticlesController@destroy');
+Route::get('/artikel/{article}/edit', 'ArticlesController@edit');
+Route::patch('/artikel/{article}', 'ArticlesController@update');
+Route::get('/artikel/{article}/detail', 'ArticlesController@detail');
+
+
+
+
+
+
 
 Route::get('/items/create', 'ItemController@create'); // menampilkan halaman form
 Route::post('/items', 'ItemController@store'); // menyimpan data
